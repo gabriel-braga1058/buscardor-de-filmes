@@ -1,6 +1,10 @@
 <?php
+//setando filme dentro da variavel $filme
 $filme = $_POST['filme'];
 
+// echo "<pre>"; print_r($filme);exit;
+
+//array com filmes contendo imagem tituto sinopse//
 $filmes = [
     "O Poderoso Chefão" => [
         "titulo" => "O Poderoso Chefão",
@@ -54,18 +58,24 @@ $filmes = [
     ]
 ];
 
-
+//criando variavel $resultado colocando vazio dentro
 $resultado = "";
+
+//condicional para ver se a variavel filme existe no array filme A função array_key_exists() retorna true se a chave existir no array e
+ //false caso contrário
 
 if (array_key_exists($filme, $filmes)) {
 
     $info = $filmes[$filme];
 
+    // echo "<pre>"; print_r($info);exit;
+
+
     $resultado = "<div class='filme'>
                     <h2>{$info['titulo']}</h2>
                     <p>{$info['sinopse']}</p>
                     <img src='{$info['imagem']}' alt='{$info['titulo']}'>
-                    
+
                   </div>";
 } else {
     $resultado = "Filme não encontrado.";
